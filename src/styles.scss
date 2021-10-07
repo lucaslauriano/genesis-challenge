@@ -1,0 +1,156 @@
+body {
+  margin: 0;
+  font-family: Roboto;
+}
+.wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 40px auto;
+  color: #00c8b3;
+  text-align: center;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+li {
+  padding: 6px 10px;
+  border: 1px solid #eee;
+  margin: 10px auto;
+}
+
+li h4 {
+  color: #00c8b3;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+li p {
+  color: #333;
+  margin: 8px 0 0;
+}
+
+footer {
+  background: #eee;
+  padding: 60px;
+  margin-top: 60px;
+}
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+input,
+select {
+  color: #efeeed;
+}
+
+.field {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+button {
+  color: white;
+  border: 0;
+  background: #00c8b3;
+  padding: 16px;
+  min-width: 80px;
+  border-radius: 50px;
+}
+
+button:hover {
+  opacity: 0.7;
+}
+
+footer a {
+  text-align: center;
+  display: block;
+  color: #999;
+  margin-top: 40px;
+  font-size: 0.7em;
+}
+
+.input-container {
+  position: relative;
+  margin: 20px;
+}
+
+input {
+  border: 0;
+  border-bottom: 2px solid #9e9e9e;
+  outline: none;
+  transition: 0.2s ease-in-out;
+  box-sizing: border-box;
+}
+
+input:focus {
+  color: #333333;
+}
+
+label {
+  top: 0;
+  left: 0;
+  right: 0;
+  color: #616161;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  font-size: 1rem;
+  cursor: text;
+  transition: 0.2s ease-in-out;
+  box-sizing: border-box;
+}
+
+input,
+label {
+  width: 100%;
+  height: 3rem;
+  font-size: 1rem;
+}
+
+/* Interation */
+input:valid,
+input:focus {
+  border-bottom: 2px solid #26a69a;
+}
+
+input:valid + label,
+input:focus + label {
+  color: #26a69a;
+  font-size: 0.8rem;
+  top: -30px;
+  pointer-events: none;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0 0.5rem;
+
+  th {
+    color: #616161;
+    font-weight: 400;
+    padding: 1rem 2rem;
+    text-align: left;
+    line-height: 1.5rem;
+  }
+  td {
+    padding: 1rem 2rem;
+    border: 0;
+    background: white;
+
+    color: var(--text-body);
+    border-radius: 0.25rem;
+
+    &:first-child {
+      color: #616161;
+    }
+  }
+}
