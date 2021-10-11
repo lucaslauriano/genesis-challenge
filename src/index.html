@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genesis Challenge</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  </head>
+  <body>
+    <section class="new-user">
+      <h2>Novo Usuário</h2>
+      <form class="new-item-form">
+        <div class="input-container">
+          <input id="fullName" class="input" type="text" pattern=".+" required />
+          <label class="label" for="fullName">Nome Completo</label>
+        </div>
+        <div class="input-container">
+          <input id="cpf" class="input" type="text" required />
+          <label class="label" for="cpf">CPF</label>
+          <span id="cpf-error" class="error" aria-live="polite"></span>
+        </div>
+        <div class="input-container">
+          <input id="phone" class="input" type="text"  required />
+          <label class="label" for="phone">Telefone</label>
+        </div>
+        <div class="input-container">
+          <input id="email" class="input" type="text" required />
+          <label class="label" for="email">E-mail</label>
+        </div>
+        
+        <button type="submit">Cadastrar</button>
+      </form>
+    </section>
+    <footer>
+      <div class="wrapper">
+        <h2>Usuários</h2>
+        <section >
+          <table>
+            <thead>
+              <tr>
+                <th w="25%">Nome Completo </th>
+                <th width="">CPF</th>
+                <th width="">Telefone</th>
+                <th width="">E-mail</th>
+                <th width="">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            </tbody>  
+          </table>
+        </section>
+      </div>
+    </footer>
+  </body>
+</html>

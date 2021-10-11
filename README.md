@@ -1,2 +1,13 @@
-# genesis-challenge
-Teste de Front-end Genesis
+# Genesis - Frontend challenge
+
+Webpack + TypeScript + Jest + Sass
+
+_Updated: 10 Oct 2021_
+
+### Installation:
+
+`npm i`
+
+### Run:
+
+`npm start`

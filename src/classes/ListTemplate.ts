@@ -1,24 +1,26 @@
-import { HasFormatter } from '../interfaces/HasFormatter';
-
+import { Component } from '../components/component';
 export class ListTemplate {
-  constructor(private container: HTMLUListElement) {}
+  constructor(private tbody: Element) {
+    this.tbody = document.querySelector('tbody');
+  }
 
-  render(item: any, heading: Array<string>, pos: 'start' | 'end') {
-    const row = document.createElement('tr');
-    const column = document.createElement('td');
+  render(item: any) {
+    const components = new Component();
+    if (item) {
+      for (let i = 0; i < item.length; i++) {
+        let element = item[i];
+        let tr = document.createElement('tr');
+        this.tbody.appendChild(tr);
 
-    const p = document.createElement('p');
-    for (let index = 0; index < item.length; index++) {
-      const element = item[index];
-      console.log('element', element);
-      /*  column.innerText = element;
-      row.append(column); */
-    }
-
-    if (pos === 'start') {
-      this.container.prepend(row);
-    } else {
-      this.container.append(row);
+        for (const item in element) {
+          let td = document.createElement('td');
+          td.appendChild(document.createTextNode(element[item]));
+          tr.appendChild(td);
+        }
+        let td = document.createElement('td');
+        td.innerHTML += components.tableColumn();
+        tr.appendChild(td);
+      }
     }
   }
 }
