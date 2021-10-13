@@ -1,14 +1,12 @@
-import { HasFormatter } from '../interfaces/HasFormatter.js';
+export class Users {
+  constructor(public users: any) {}
 
-export class User implements HasFormatter {
-  constructor(
-    readonly fullName: string,
-    readonly cpf: string,
-    private phone: string,
-    public email: string
-  ) {}
+  getUsers() {
+    const users = localStorage.getItem('@users');
+    return JSON.parse(users);
+  }
 
-  format() {
-    return `${this.fullName} |${this.cpf} | ${this.email} | ${this.phone}`;
+  setUsers(users: any) {
+    localStorage.setItem('@users', JSON.stringify(users));
   }
 }

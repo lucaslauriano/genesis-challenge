@@ -1,12 +1,15 @@
 export class Component {
-  onDelete(event: Event) {
-    console.log('deleting', event);
-  }
-
-  tableColumn() {
+  createRowElement = (item: any) => {
     return `
-      <i class="material-icons icons" 
-         oncLick={${(event: Event) => this.onDelete(event)}}>delete</i>
-    `;
-  }
+    <tr>
+      <td>${item.name}</td>
+      <td>${item.cpf}</td>
+      <td>${item.phone}</td>
+      <td>${item.email}</td>
+      <td>
+        <i class="material-icons icons deleteBtn">delete</i>
+      </td>
+    </tr>
+  `;
+  };
 }

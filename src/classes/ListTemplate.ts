@@ -4,22 +4,12 @@ export class ListTemplate {
     this.tbody = document.querySelector('tbody');
   }
 
-  render(item: any) {
+  render(users: any) {
     const components = new Component();
-    if (item) {
-      for (let i = 0; i < item.length; i++) {
-        let element = item[i];
-        let tr = document.createElement('tr');
-        this.tbody.appendChild(tr);
-
-        for (const item in element) {
-          let td = document.createElement('td');
-          td.appendChild(document.createTextNode(element[item]));
-          tr.appendChild(td);
-        }
-        let td = document.createElement('td');
-        td.innerHTML += components.tableColumn();
-        tr.appendChild(td);
+    if (users) {
+      for (let i = 0; i < users.length; i++) {
+        const user = users[i];
+        this.tbody.innerHTML += components.createRowElement(user);
       }
     }
   }

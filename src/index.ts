@@ -1,12 +1,17 @@
 import './main.scss';
 import { ListTemplate } from './classes/ListTemplate';
+import { Users } from './classes/User';
+import { Component } from './components/component';
 
 const form = document.querySelector('.new-item-form') as HTMLFormElement;
+
 const fullName = document.querySelector('#fullName') as HTMLInputElement;
 const cpf = document.querySelector('#cpf') as HTMLInputElement;
 const phone = document.querySelector('#phone') as HTMLInputElement;
 const email = document.querySelector('#email') as HTMLInputElement;
 const tbody = document.querySelector('tbody');
+const tableEl = document.querySelector('table');
+const components = new Component();
 
 cpf.addEventListener(
   'keyup',
@@ -22,26 +27,34 @@ const fetchUsers = () => {
     .then((response) => response.json())
     .then((data) => {
       let list = new ListTemplate(data);
+      let users = new Users(data);
       list.render(data);
+      users.setUsers(data);
     })
     .catch((error) => error);
 };
 
 fetchUsers();
 
-form.addEventListener('submit', (e: Event) => {
-  e.preventDefault();
-
-  let values: [string, string, string, string];
-  values = [fullName.value, cpf.value, phone.value, email.value];
-  var tr = document.createElement('tr');
-
-  for (var i = 0; i < values.length + 1; i++) {
-    let element = values[i];
-    var td = document.createElement('td');
-    td.appendChild(document.createTextNode(element));
-    tr.appendChild(td);
+const onDeleteRow = (e: any) => {
+  if (!e.target.classList.contains('deleteBtn')) {
+    return;
   }
+  e.target.closest('tr').remove();
+};
 
-  tbody.appendChild(tr);
+tableEl.addEventListener('click', onDeleteRow);
+
+form.addEventListener('submit', (e: Event) => {
+  let users = new Users(null);
+  e.preventDefault();
+  let values: {};
+  values = {
+    name: fullName.value,
+    cpf: cpf.value,
+    phone: phone.value,
+    email: email.value,
+  };
+  users;
+  tbody.innerHTML += components.createRowElement(values);
 });
